@@ -1,0 +1,6 @@
+.idea
+app/static
+app/media/*
+app.log
+venv
+.DS_Store

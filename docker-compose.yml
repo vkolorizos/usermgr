@@ -1,0 +1,57 @@
+version: '3.4'
+
+services:
+  db:
+    container_name: db
+    image: postgres:15.0-bullseye
+    environment:
+      POSTGRES_DB: postgresdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - main
+    ports:
+      - "5432:5432"
+    restart: on-failure
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app: &python
+    container_name: app
+    env_file:
+      - env/.env
+    build:
+      context: .
+    expose:
+      - "8000"
+    networks:
+      - main
+    depends_on:
+      - db
+    image: app
+    restart: on-failure
+    volumes:
+      - "C:\\Users\\carvanitis\\Documents\\Projects\\usermng\\app:/app"
+      - ./config/app/on-container-start.sh:/config/on-container-start.sh
+      - static:/srv
+
+  nginx:
+    container_name: nginx
+    image: nginx
+    hostname: nginx
+    restart: on-failure
+    networks:
+      - main
+    volumes:
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
+
+networks:
+  main:
+    driver: bridge
+
+volumes:
+  pgdata:
+  static:
+  media:
