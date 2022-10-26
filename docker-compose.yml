@@ -16,7 +16,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  app: &python
+  app:
     container_name: app
     env_file:
       - env/.env
@@ -34,7 +34,7 @@ services:
 #      - "C:\\Users\\carvanitis\\Documents\\Projects\\usermng\\app:/app"
       - "/Users/vkolorizos/Documents/Sites/usermgr/app:/app"
       - ./config/app/on-container-start.sh:/config/on-container-start.sh
-      - static:/srv
+      - static:/app/static
 
   nginx:
     container_name: nginx
@@ -46,7 +46,7 @@ services:
     networks:
       - main
     volumes:
-      - ./config/nginx:/etc/nginx/conf.d
+      - static:/static
     depends_on:
       - app
 

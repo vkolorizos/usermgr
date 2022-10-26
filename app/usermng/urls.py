@@ -18,6 +18,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 
+admin.site.site_header = 'Aegean Motorway User MGR'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-] + static(settings.STATIC_URL, document=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
