@@ -22,8 +22,8 @@ services:
       - env/.env
     build:
       context: .
-    expose:
-      - "8000"
+    ports:
+      - "8000:8000"
     networks:
       - main
     depends_on:
@@ -31,13 +31,16 @@ services:
     image: app
     restart: on-failure
     volumes:
-      - "C:\\Users\\carvanitis\\Documents\\Projects\\usermng\\app:/app"
+#      - "C:\\Users\\carvanitis\\Documents\\Projects\\usermng\\app:/app"
+      - "/Users/vkolorizos/Documents/Sites/usermgr/app:/app"
       - ./config/app/on-container-start.sh:/config/on-container-start.sh
       - static:/srv
 
   nginx:
     container_name: nginx
-    image: nginx
+    build:
+      context: .
+      dockerfile: config/nginx/Dockerfile
     hostname: nginx
     restart: on-failure
     networks:

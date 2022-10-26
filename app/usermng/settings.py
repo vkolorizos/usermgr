@@ -26,7 +26,7 @@ SECRET_KEY = 'ktg8#8(u=4+a(5s#y+o6%$&$2s$))o^k+-&#az@z004q%*w-r3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
