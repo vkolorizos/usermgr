@@ -1,6 +1,7 @@
 .idea
-app/static
+app/usermng/static
 app/media/*
 app.log
 venv
 .DS_Store
+app/db.sqlite3

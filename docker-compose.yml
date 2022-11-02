@@ -23,7 +23,7 @@ services:
     build:
       context: .
     ports:
-      - "8000:8000"
+      - "9000:9000"
     networks:
       - main
     depends_on:
@@ -31,8 +31,8 @@ services:
     image: app
     restart: on-failure
     volumes:
-#      - "C:\\Users\\carvanitis\\Documents\\Projects\\usermng\\app:/app"
-      - "/Users/vkolorizos/Documents/Sites/usermgr/app:/app"
+      - "C:\\Users\\carvanitis\\Documents\\Projects\\usermng\\app:/app"
+#      - "/Users/vkolorizos/Documents/Sites/usermgr/app:/app"
       - ./config/app/on-container-start.sh:/config/on-container-start.sh
       - static:/srv
 
