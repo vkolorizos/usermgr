@@ -1,5 +1,7 @@
 .idea
 app/usermng/static
+app/static/*
+app/*.pyc
 app/media/*
 app.log
 venv
