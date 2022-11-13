@@ -23,7 +23,7 @@ class ConsentFormAdmin(admin.ModelAdmin):
 
     def is_submitted(self, x):
         return bool(x.personnel_options.is_submitted)
-    is_submitted.short_description = 'is submitted'
+    is_submitted.short_description = 'Is submitted?'
     is_submitted.boolean = True
 
     def issue_toll_card(self, x):

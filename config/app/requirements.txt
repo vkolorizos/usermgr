@@ -4,3 +4,4 @@ gunicorn
 psycopg2-binary
 typing
 django-import-export
+django-admin-interface

@@ -13,6 +13,7 @@ class Department(models.Model):
     def __str__(self):
         return self.name
 
+
 class ConsentForm(models.Model):
     last_name = models.CharField(max_length=120)
     first_name = models.CharField(max_length=120)
@@ -38,7 +39,8 @@ class PersonnelOptions(models.Model):
     discount_card = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
-    personnel_options = models.OneToOneField(ConsentForm, on_delete=models.CASCADE, primary_key=True, related_name='personnel_options')
+    personnel_options = models.OneToOneField(ConsentForm, on_delete=models.CASCADE, primary_key=True,
+                                             related_name='personnel_options')
 
     def __str__(self):
         return ''
